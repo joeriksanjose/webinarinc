@@ -17,6 +17,23 @@ class ChuckNorrisController extends Controller
     public function categories()
     {
         $categories = $this->chuckNorriesService->categories();
+
         return response()->json(['categories' => $categories]);
+    }
+
+    public function randomJoke()
+    {
+        $category = request()->get('category');
+        $randomJoke = $this->chuckNorriesService->randomChuck($category);
+
+        return response()->json(['random_joke' => $randomJoke]);
+    }
+
+    public function search()
+    {
+        $query = request()->get('query');
+        $jokes = $this->chuckNorriesService->search($query);
+
+        return response()->json(['jokes' => $jokes]);
     }
 }

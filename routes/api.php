@@ -19,3 +19,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('categories', 'App\Http\Controllers\Api\ChuckNorrisController@categories');
+Route::get('random-joke', 'App\Http\Controllers\Api\ChuckNorrisController@randomJoke');
+Route::get('search-joke', 'App\Http\Controllers\Api\ChuckNorrisController@search');
